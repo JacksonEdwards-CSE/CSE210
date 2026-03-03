@@ -14,7 +14,7 @@ class Program
 
         myFirstJob._endYear = 2024;
 
-        myFirstJob.DisplayJob();
+
 
         Job mySecondJob = new Job();
 
@@ -26,6 +26,16 @@ class Program
 
         mySecondJob._endYear = 2025;
 
-        mySecondJob.DisplayJob();
+
+
+        Resume myResume = new Resume();
+
+        myResume._name = "Jackson Edwards";
+
+        myResume._jobs = new List<Job>();
+        myResume._jobs.Add(myFirstJob);
+        myResume._jobs.Add(mySecondJob);
+
+        myResume.DisplayResume();
     }
 }
