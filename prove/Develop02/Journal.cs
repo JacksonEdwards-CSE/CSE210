@@ -6,7 +6,9 @@ class Journal
 
     public string _entry;
 
-    public string WriteEntry()
+    public string _emotion;
+
+    public void WriteEntry()
     {
         Entry entry = new Entry();
 
@@ -16,14 +18,33 @@ class Journal
         entry.Response();
 
         _entry = $"{entry._dateTime} - {entry._prompt}\n{entry._response}";
-        return _entry;
     }
 
     public void AppendEntry()
     {
-        _entries.Add($"_entry\n");
+        _entries.Add($"{_entry}\n");
     }
     
+    public void DefineEmotion()
+    {
+        Emotion emotion = new Emotion();
+
+        emotion.GetDate();
+
+        emotion.GetCategory();
+
+        emotion.GetSpecific();
+
+        emotion.GetExplanation();
+
+        _emotion = $"{emotion._dateTime} - Today I felt {emotion._categoryName} but more specifically I felt {emotion._specificName} because {emotion._explanation}";
+    }
+
+    public void AppendEmotion()
+    {
+        _entries.Add($"{_emotion}\n");
+    }
+
     public void DisplayJournal()
     {
         foreach (string entry in _entries)

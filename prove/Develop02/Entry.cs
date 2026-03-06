@@ -1,6 +1,4 @@
 
-using System.Runtime.InteropServices;
-
 class Entry
 {
     public string _dateTime;
@@ -18,7 +16,9 @@ class Entry
 
         List<string> prompts = new List<string> {"Who was the most interesting person you interacted with today?", 
         "What was the best part of your day?", "How did you see the Lord's hand in your life today?", 
-        "What was the strongest emotion you felt today?", "If you had one thing you could do over today, what would it be?"};
+        "What was the hardest part of your day?", "How did you overcome adversity today?",
+         "If you had one thing you could do over today, what would it be?", "What tasks did you get done today?", 
+         "What is something you did to help someone today?", "What do you want to do tomorrow to improve yourself?"};
         
         Random random = new Random();
 
@@ -27,14 +27,12 @@ class Entry
         _prompt = prompts[randomIndex];
     }
 
-    public string Response()
+    public void Response()
     {
         Console.WriteLine($"{_dateTime} - {_prompt}");
 
         _response = Console.ReadLine();
 
         Console.WriteLine();
-        
-        return _response;
     }
 }

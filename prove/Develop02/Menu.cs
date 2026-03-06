@@ -9,12 +9,12 @@ class Menu
             do
             {
                 Console.Clear();
-                Console.WriteLine("Please Select One Of The Following:\n1. Write an Entry\n2. Display Journal\n3. Load Journal\n4. Save Journal\n5. Quit\n");
+                Console.WriteLine("Please Select One Of The Following:\n1. Write an Entry\n2. Define Your Emotion\n3. Display Journal\n4. Load Journal\n5. Save Journal\n6. Quit\n");
                 Console.WriteLine("Enter Your Choice:");
             
                 _userChoice = int.Parse(Console.ReadLine());
             
-            }while(_userChoice < 1 || _userChoice > 5);
+            }while(_userChoice < 1 || _userChoice > 6);
 
             Console.WriteLine();
 
@@ -25,6 +25,12 @@ class Menu
     {
         _journal.WriteEntry();
         _journal.AppendEntry();
+    }
+
+    public void DefineEmotion()
+    {
+        _journal.DefineEmotion();
+        _journal.AppendEmotion();
     }
 
     public void DisplayJournal()

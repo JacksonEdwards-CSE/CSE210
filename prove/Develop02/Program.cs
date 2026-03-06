@@ -23,23 +23,29 @@ class Program
 
                 case 2:
 
-                    menu.DisplayJournal();
+                    menu.DefineEmotion();
 
                     break;
-
+                
                 case 3:
 
-                    menu.ReadFile();
+                    menu.DisplayJournal();
 
                     break;
 
                 case 4:
 
-                    menu.WriteFile();
+                    menu.ReadFile();
 
                     break;
 
                 case 5:
+
+                    menu.WriteFile();
+
+                    break;
+
+                case 6:
 
                     done = true;
 
