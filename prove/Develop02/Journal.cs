@@ -35,7 +35,7 @@ class Journal
 
     public void ReadFile()
     {
-        Console.WriteLine("What is the name of your journal file?");
+        Console.WriteLine("What is the name of your journal file?(Be sure to include\".txt\")");
         string filename = Console.ReadLine();
 
         string[] journalFile = System.IO.File.ReadAllLines(filename);
@@ -48,7 +48,7 @@ class Journal
 
     public void WriteFile()
     {
-        Console.WriteLine("What is the name of your journal file?");
+        Console.WriteLine("What is the name of your journal file?(Be sure to include\".txt\")");
         string filename = Console.ReadLine();
 
         using (StreamWriter outputFile = new StreamWriter(filename))
