@@ -4,6 +4,12 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine("Hello Angle World!");
+        Console.Clear();
+
+        Angle myAngle = new Angle(180);
+
+        Console.WriteLine(myAngle.GetRadians());
+
+        Console.WriteLine(myAngle.GetDegrees());
     }
 }

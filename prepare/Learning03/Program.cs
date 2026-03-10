@@ -61,6 +61,5 @@ class Program
             Console.WriteLine($"Fraction {i + 1}: {loopFractionString} | Decimal Value: {loopDecimalValue:F5}");
             Console.WriteLine();
         }
-
     }
 }
