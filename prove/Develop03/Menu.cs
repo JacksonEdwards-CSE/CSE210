@@ -28,6 +28,10 @@ class Menu
 
         Console.WriteLine("Select a scripture to memorize:\n1) Isaiah 1:18\n2) 1 Nephi 3:7\n3) Proverbs 3:5-6");
 
+        Console.WriteLine();
+
+        Console.Write("Enter your choice: ");
+
         _choice = int.Parse(Console.ReadLine());
         
     }
@@ -40,29 +44,41 @@ class Menu
 
         Console.Clear();
 
+        Console.WriteLine("Press enter to hide words, press q to exit the program.");
+
+        Console.WriteLine();
+
         Console.WriteLine(Reference.GetReference());
 
         Scripture.GetScripture();
         
         prompt = Console.ReadLine();
 
-        do
+        if (prompt != "q")
         {
-        
-        Console.Clear();
+            
+            do
+            {
+            
+            Console.Clear();
 
-        Console.WriteLine(Reference.GetReference());
+            Console.WriteLine("Press enter to hide words, press q to exit the program.");
 
-        Scripture.HideWord();
+            Console.WriteLine();
 
-        Scripture.HideWord();
+            Console.WriteLine(Reference.GetReference());
 
-        Scripture.HideWord();
+            Scripture.HideWord();
 
-        Scripture.GetScripture();
-        
-        prompt = Console.ReadLine();
+            Scripture.HideWord();
 
-        }while (prompt != "q");
+            Scripture.HideWord();
+
+            Scripture.GetScripture();
+            
+            prompt = Console.ReadLine();
+
+            }while (prompt != "q");
+        }
     }
 }
