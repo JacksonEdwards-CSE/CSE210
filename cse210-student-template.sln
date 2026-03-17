@@ -55,8 +55,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angle", "sandbox\Angle\Angl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Try_Catch", "sandbox\Try_Catch\Try_Catch.csproj", "{F656535D-01DB-4FC8-8340-D0AD08B0FEDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakePeople.cs", "sandbox\MakePeople.cs\MakePeople.cs.csproj", "{8F83C7D4-B16F-49DB-9AF2-C3373B4701F1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleProject", "sandbox\PeopleProject\PeopleProject.csproj", "{F0F04669-B86F-42AF-AADB-E033174C2E1F}"
 EndProject
 Global
