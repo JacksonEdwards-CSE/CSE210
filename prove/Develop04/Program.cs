@@ -8,5 +8,7 @@ class Program
 
         newActivity.DisplayGreeting();
         newActivity.DisplayDescription();
+
+        newActivity.DisplaySpinner("Hello World!", 5);
     }
 }
