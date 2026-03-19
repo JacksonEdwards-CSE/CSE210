@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
+        Activity newActivity = new Activity("Breathing", "This activity will help you calm yourself with a series of breathing motions.");
+
+        newActivity.DisplayGreeting();
+        newActivity.DisplayDescription();
     }
 }
