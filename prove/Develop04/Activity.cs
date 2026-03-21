@@ -1,6 +1,4 @@
 
-using System.Diagnostics.Contracts;
-
 class Activity
 {
     
@@ -30,25 +28,53 @@ class Activity
         Console.WriteLine(_description);
     }
 
-    public void DisplaySpinner(string message, int seconds)
+    public void SetSeconds()
+    {
+        Console.Write("How long would you like your session: ");
+        _duration = int.Parse(Console.ReadLine());
+    }
+
+    public int GetSeconds()
+    {
+        return _duration;
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public string GetPrompt(List<string> prompts)
+    {
+        Random random = new Random();
+
+        int promptIndex = random.Next(prompts.Count);
+
+        string prompt = prompts[promptIndex];
+        
+        return prompt;
+    }
+
+    public void DisplayLoading(string message, int seconds, string animatedString, int sleepTime)
     {
         DateTime currentTime = DateTime.Now;
         DateTime endTime = currentTime.AddSeconds(seconds);
-        int sleepTime= 100;
-        string animationString = "-\\|/";
         int index = 0;
 
-        Console.Clear();
         Console.CursorVisible = false;
 
         Console.Write($"{message} ");
-
+        
         while(DateTime.Now < endTime)
         {
-            Console.Write(animationString[index++ % animationString.Length]);
+            Console.Write(animatedString[index++ % animatedString.Length]);
             Thread.Sleep(sleepTime);
             Console.Write("\b");
         }
+
+        Console.Write("\b");
+
+        Console.WriteLine();
 
         Console.CursorVisible = true;
     }
