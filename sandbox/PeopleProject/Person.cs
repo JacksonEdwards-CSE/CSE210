@@ -2,7 +2,7 @@
 using System.Reflection.Metadata;
 using System.Security.Cryptography;
 
-class Person
+abstract class Person
 {
     private string _firstName;
     
@@ -63,4 +63,6 @@ class Person
             _age = age;
         }
     }
+
+    public abstract double GetSalary();
 }
