@@ -3,9 +3,8 @@ abstract class Goal
 {
     public string _name;
     public string _description;
-    private int _points;
+    protected int _points;
     protected bool _status;
-    private string _goalType;
 
     public Goal()
     {
@@ -21,12 +20,21 @@ abstract class Goal
         _description = description;
         _points = 10;
         _status = false;
-        _goalType = "Simple Goal";
+    }
+
+    public Goal(string name, string description, int points, bool status)
+    {
+        _name = name;
+        _description = description;
+        _points = points;
+        _status = status;
     }
     public void SetName()
     {
-        Console.WriteLine("Please enter the name of your goal:");
+        Console.Write("Please enter the name of your goal:");
         _name = Console.ReadLine();
+
+        Console.WriteLine();
     }
 
     public string GetName()
@@ -36,8 +44,10 @@ abstract class Goal
 
     public void SetDescription()
     {
-        Console.WriteLine("What is the purpose of your goal?");
+        Console.Write("Please enter the description of your goal: ");
         _description = Console.ReadLine();
+        
+        Console.WriteLine();
     }
 
     public string GetDescription()
@@ -45,34 +55,47 @@ abstract class Goal
         return _description;
     }
 
-    public string GetConsoleString()
+    public virtual void SetPoints()
+    {
+        Console.Write("Please enter the amount of points this goal is worth: ");
+        _points = int.Parse(Console.ReadLine());
+        
+        Console.WriteLine();
+    }
+
+    public virtual int GetPoints()
+    {
+        return _points;
+    }
+
+    public virtual string GetConsoleString()
     {
         if (_status)
         {   
-            return $"Goal Information: {_name}, {_description}, {_points} points, Complete";
+            return $"[X]{_name} ({_description})";
         }
         else
         {
-            return $"Goal Information: {_name}, {_description}, {_points} points, Inomplete";
+            return $"[ ] {_name} ({_description})";
         }
     }
-
-    public virtual void SetPoints()
-    {
-        Console.WriteLine("How many points is this goal worth?");
-
-        _points = int.Parse(Console.ReadLine());
-    }
-
-    public abstract void RecordEvent();
 
     public bool GetStatus()
     {
         return _status;
     }
 
-    public int GetPoints()
+    public abstract void RecordEvent();
+
+    public virtual string GetFileString()
     {
-        return _points;
+        if (_status)
+        {   
+            return $"SimpleGoal#{_name}#{_description}#{_points}#true";
+        }
+        else
+        {
+            return $"SimpleGoal#{_name}#{_description}#{_points}#false";
+        }
     }
 }

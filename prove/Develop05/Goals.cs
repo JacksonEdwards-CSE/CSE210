@@ -4,18 +4,20 @@ using System.Numerics;
 class Goals
 {
 
-    List<Goal> goalsList = new List<Goal>();
-    private int _totalPoints;
+    List<Goal> _goalsList = new List<Goal>();
+    private int _totalPoints = 0;
 
-    public string DisplayTotalPoints()
+    public void DisplayTotalPoints()
     {
         CalculateTotalPoints();
-        return $"Total Points: {_totalPoints}";
+        Console.WriteLine($"Total Points: {_totalPoints}");
     }
 
     private void CalculateTotalPoints()
     {
-        foreach (Goal goal in goalsList)
+        _totalPoints = 0;
+
+        foreach (Goal goal in _goalsList)
         {
             if (goal.GetStatus())
             {
@@ -28,9 +30,33 @@ class Goals
 
     public void DisplayGoals()
     {
-        foreach (Goal goal in goalsList)
+        int i = 1;
+        foreach (Goal goal in _goalsList)
         {
-            goal.GetConsoleString();
+            Console.WriteLine($"{i++}: {goal.GetConsoleString()}");
+        }
+    }
+
+    public List<Goal> GetGoalsList()
+    {
+        return _goalsList;
+    }
+
+    public void AppendGoal(Goal goal)
+    {
+        _goalsList.Add(goal);
+    }
+
+    public void RecordGoalEvent(int goalIndex)
+    {
+        _goalsList[goalIndex].RecordEvent();
+    }
+
+    public void WriteToFile()
+    {
+        foreach (Goal goal in _goalsList)
+        {
+            goal.GetFileString();
         }
     }
 }
