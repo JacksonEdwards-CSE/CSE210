@@ -7,11 +7,16 @@ class Goals
     List<Goal> _goalsList = new List<Goal>();
     private int _totalPoints = 0;
 
+    private int _level;
+
     public void DisplayTotalPoints()
     {
         CalculateTotalPoints();
-        Console.WriteLine($"Total Points: {_totalPoints}");
+        GetLevel();
+        Console.WriteLine($"Total Points: {_totalPoints}/{100 + (_level * 50)}     Level:{_level + 1}");
     }
+    
+    
 
     private void CalculateTotalPoints()
     {
@@ -25,6 +30,14 @@ class Goals
 
                 _totalPoints += points;
             }
+        }
+    }
+    
+    private void GetLevel()
+    {
+        if (_totalPoints >= 100)
+        {
+            _level = 1 + (_totalPoints - 100) / 50;
         }
     }
 

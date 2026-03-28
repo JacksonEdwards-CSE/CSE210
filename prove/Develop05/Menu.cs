@@ -6,7 +6,8 @@ class Menu
     private int _userChoice;
 
     public void ProcessMenu()
-    {   Console.Clear();
+    {
+        Console.Clear();
 
         _goals.DisplayTotalPoints();
         Console.WriteLine($"\nMenu Options:\n1) Create New Goal\n2) Show Goals\n3) Save Goals\n4) Load Goals\n5) Record Event\n6) Quit\n");
